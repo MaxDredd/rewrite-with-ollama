@@ -1,0 +1,40 @@
+{
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Rewrite with Ollama"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "description": "Right-click selected text and rewrite it with a local Ollama model. Preview, edit, then apply back into the page.",
+  "host_permissions": [
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "http://100.*/*",
+    "http://10.*/*",
+    "http://192.168.*/*"
+  ],
+  "manifest_version": 3,
+  "name": "Rewrite with Ollama",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "storage",
+    "clipboardWrite",
+    "clipboardRead"
+  ],
+  "version": "1.4.1"
+}
